@@ -20,15 +20,6 @@
     <div class="app-container">
         <header>
             <h1 class="title-page">CSVREADER</h1>
-            <div class="msg">
-                <?php
-if (isset($_GET["error"])) {
-    $msg_error = $_GET["error"];
-    echo '<p class="credential-error">' . $msg_error . '</p>';
-}
-                ?>
-            </div>
-
         </header>
         <div class="file-form">
             <p class="file-selected" id="fileSelected"></p>
@@ -47,8 +38,8 @@ if (isset($_GET["error"])) {
                 <a class="btn btn-file" href="{{ url('/searchCustomer') }}">Modify customer</a>
                 <a class="btn btn-file" href="{{ url('/addCustomer') }}">Remove customer</a>
             </div>
-            @if(isset($_GET['msg']))
-                <div class="alert alert-success">
+            @if(isset($_GET['msg']) && isset($_GET['type']))
+                <div class="alert {{$_GET['type']}}">
                     {{ urldecode($_GET['msg']) }}
                 </div>
             @endif

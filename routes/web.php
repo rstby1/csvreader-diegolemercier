@@ -16,7 +16,12 @@ Route::get('/searchCustomer', function(){
 Route::get('/addCustomer', function () {
     return view('addCustomer');
 });
-
-Route::post('/import', [CsvController::class, 'processCSV'])->name('process.csv');
+/*
+Route::get('/uploadFile', function () {
+    return view('uploadFile');
+}); 
+Route::post('/uploadFile', [CsvController::class, 'processCSV'])->name('process.csv'), function(){
+    return view('index');
+};*/
 Route::post('/searchCustomer', [CustomerController::class, 'searchCustomer'])->name('searchCustomer');
 Route::post('/addCustomer', [CustomerController::class, 'addCustomer'])->name('addCustomer');
